@@ -10,10 +10,10 @@ module.exports = {
         dc: {
           black: '#06060F',
           dark: '#0D0D1A',
-          surface: '#111122',
+          surface: '#00243D',
           card: '#161628',
-          blue: '#0055FF',
-          blueHover: '#0044DD',
+          blue: '#72A7E4',
+          blueHover: '#308DF3',
           cyan: '#00C8FF',
           text: '#E8EEFF',
           muted: '#6B7299',
