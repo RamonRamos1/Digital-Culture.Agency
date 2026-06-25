@@ -39,6 +39,13 @@ body {
     @apply font-display font-bold tracking-tighter leading-[1.1] text-[clamp(28px,3.8vw,46px)];
   }
 
+  .line-clamp-4 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+  }
+
   /* ---------- Cards ---------- */
   .dc-card {
     @apply bg-dc-surface border border-dc-border rounded-xl transition-colors hover:bg-dc-card;
