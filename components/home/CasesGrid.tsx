@@ -1,3 +1,9 @@
+"use client";
+
+import { useState } from "react";
+
+const DESCRIPTION_WORD_LIMIT = 30;
+
 const CASES = [
   {
     badge: "Volta Energía",
@@ -25,7 +31,21 @@ const CASES = [
   },
 ];
 
+function getPreviewText(text: string, limit: number) {
+  const words = text.split(/\s+/).filter(Boolean);
+  return words.length <= limit ? text : `${words.slice(0, limit).join(" ")}...`;
+}
+
 export default function CasesGrid() {
+  const [expandedCases, setExpandedCases] = useState<Record<number, boolean>>({});
+
+  const toggleExpanded = (index: number) => {
+    setExpandedCases((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
+  };
+
   return (
     <section className="bg-dc-dark px-6 md:px-12 py-24 md:py-28">
       <div className="section-eyebrow">Casos de Éxito</div>
@@ -36,33 +56,51 @@ export default function CasesGrid() {
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
-        {CASES.map((c) => (
-          <div
-            key={c.title}
-            className="bg-dc-surface border border-dc-border rounded-xl overflow-hidden transition-all hover:-translate-y-1 hover:border-dc-blue/30"
-          >
-            <div className="h-40 bg-gradient-to-br from-dc-card to-dc-blue/5 flex items-center justify-center border-b border-dc-border font-display text-4xl font-bold tracking-tighter text-white/[0.07]">
-              {c.badge}
-            </div>
-            <div className="p-7">
-              <div className="text-[11px] text-dc-cyan tracking-wide uppercase font-semibold mb-2.5">
-                {c.type}
+        {CASES.map((c, index) => {
+          const isExpanded = expandedCases[index];
+          const words = c.desc.split(/\s+/).filter(Boolean);
+          const shouldTruncate = words.length > DESCRIPTION_WORD_LIMIT;
+          const displayedText = isExpanded
+            ? c.desc
+            : getPreviewText(c.desc, DESCRIPTION_WORD_LIMIT);
+
+          return (
+            <div
+              key={c.title}
+              className="bg-dc-surface border border-dc-border rounded-xl overflow-hidden transition-all hover:-translate-y-1 hover:border-dc-blue/30"
+            >
+              <div className="h-40 bg-gradient-to-br from-dc-card to-dc-blue/5 flex items-center justify-center border-b border-dc-border font-display text-4xl font-bold tracking-tighter text-white/[0.07]">
+                {c.badge}
               </div>
-              <h3 className="font-display text-lg font-bold mb-2.5 tracking-tight">
-                {c.title}
-              </h3>
-              <p className="text-sm text-dc-muted leading-relaxed">{c.desc}</p>
-              <div className="mt-5 p-3.5 bg-dc-blue/5 border border-dc-blue/10 rounded-md">
-                <div className="font-display text-2xl font-bold text-dc-cyan">
-                  {c.resultNum}
+              <div className="p-7">
+                <div className="text-[11px] text-dc-cyan tracking-wide uppercase font-semibold mb-2.5">
+                  {c.type}
                 </div>
-                <div className="text-xs text-dc-muted mt-0.5">
-                  {c.resultTxt}
+                <h3 className="font-display text-lg font-bold mb-2.5 tracking-tight">
+                  {c.title}
+                </h3>
+                <p className="text-sm text-dc-muted leading-relaxed">{displayedText}</p>
+                {shouldTruncate && (
+                  <button
+                    type="button"
+                    onClick={() => toggleExpanded(index)}
+                    className="mt-3 text-sm font-semibold text-dc-cyan hover:text-white transition"
+                  >
+                    {isExpanded ? "ver menos" : "ver más"}
+                  </button>
+                )}
+                <div className="mt-5 p-3.5 bg-dc-blue/5 border border-dc-blue/10 rounded-md">
+                  <div className="font-display text-2xl font-bold text-dc-cyan">
+                    {c.resultNum}
+                  </div>
+                  <div className="text-xs text-dc-muted mt-0.5">
+                    {c.resultTxt}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

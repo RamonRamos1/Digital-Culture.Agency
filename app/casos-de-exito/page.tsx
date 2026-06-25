@@ -1,5 +1,6 @@
 import PageHero from "@/components/PageHero";
 import CTAFinal from "@/components/CTAFinal";
+import CaseCards from "@/components/casos-de-exito/CaseCards";
 
 export const metadata = {
   title: "Casos de Éxito | Digital Culture",
@@ -85,59 +86,7 @@ export default function CasosDeExitoPage() {
         description="Cada proyecto incluye el problema real, la solución aplicada, la tecnología utilizada y el resultado medible obtenido."
       />
 
-      <section className="px-6 md:px-12 pb-24 md:pb-28">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {CASES.map((c) => (
-            <div
-              key={c.title}
-              className="bg-dc-surface border border-dc-border rounded-xl overflow-hidden flex flex-col transition-all hover:-translate-y-1 hover:border-dc-blue/30"
-            >
-              <div className="h-36 bg-gradient-to-br from-dc-card to-dc-blue/5 flex items-center justify-center border-b border-dc-border font-display text-4xl font-bold tracking-tighter text-white/[0.07]">
-                {c.badge}
-              </div>
-              <div className="p-7 flex flex-col flex-1">
-                <div className="text-[11px] text-dc-cyan tracking-wide uppercase font-semibold mb-2.5">
-                  {c.type}
-                </div>
-                <h3 className="font-display text-lg font-bold mb-3 tracking-tight">
-                  {c.title}
-                </h3>
-
-                <div className="flex flex-col gap-3 text-[13px] text-dc-muted leading-relaxed mb-4">
-                  <p>
-                    <span className="text-dc-text font-semibold">Problema: </span>
-                    {c.problem}
-                  </p>
-                  <p>
-                    <span className="text-dc-text font-semibold">Solución: </span>
-                    {c.solution}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2 mb-5">
-                  {c.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-[11px] text-dc-muted bg-white/[0.04] border border-dc-border rounded px-2.5 py-0.5"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-auto p-3.5 bg-dc-blue/5 border border-dc-blue/10 rounded-md">
-                  <div className="font-display text-2xl font-bold text-dc-cyan">
-                    {c.resultNum}
-                  </div>
-                  <div className="text-xs text-dc-muted mt-0.5">
-                    {c.resultTxt}
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+      <CaseCards cases={CASES} />
 
       <CTAFinal
         title={

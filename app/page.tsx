@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { ArrowRight, PlayCircle } from "lucide-react";
-import HeroStats from "@/components/home/HeroStats";
 import LogosStrip from "@/components/home/LogosStrip";
 import ProblemsGrid from "@/components/home/ProblemsGrid";
 import ServicesGrid from "@/components/home/ServicesGrid";
@@ -50,8 +49,6 @@ export default function HomePage() {
               Ver Casos de Éxito
             </Link>
           </div>
-
-          <HeroStats />
         </div>
       </section>
 

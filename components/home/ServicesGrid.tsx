@@ -62,7 +62,7 @@ export default function ServicesGrid() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-dc-border border border-dc-border rounded-xl overflow-hidden">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-dc-blue border border-dc-blue rounded-xl overflow-hidden">
         {SERVICES.map((s) => (
           <div
             key={s.num}
