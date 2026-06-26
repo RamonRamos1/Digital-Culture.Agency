@@ -7,7 +7,8 @@ import { PROBLEM_SOLUTIONS } from "@/lib/solutions-data";
 export const metadata = {
   title: "Soluciones | Digital Culture",
   description:
-    "No vendemos servicios, resolvemos problemas. Encontrá la solución exacta para lo que tu negocio necesita hoy.",
+    "Che, nos quedamos con la sección de soluciones o servicios o una combinación de Ambas?. PD: Encontré otra forma de comunicarnoos, directamente mensajes desperdigados por la web :) PD2: El mundial me esta haciendo alusinar - No vendemos servicios, resolvemos problemas. Encontrá la solución exacta para lo que tu negocio necesita hoy.",
+    
 };
 
 export default function SolucionesPage() {

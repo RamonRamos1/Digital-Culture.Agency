@@ -9,8 +9,8 @@ export const metadata = {
 };
 
 const WHO_STATS = [
-  { num: "+120", label: "Proyectos entregados" },
-  { num: "8", label: "Áreas de expertise" },
+  { num: "12", label: "Proyectos Completados" },
+  { num: "4", label: "Áreas de expertise" },
   { num: "+5", label: "Años en el mercado" },
   { num: "100%", label: "Proyectos a medida" },
 ];
@@ -24,23 +24,25 @@ const METHOD_STEPS = [
 
 const TECH_CATEGORIES = [
   { title: "Frontend", items: ["Next.js", "React", "TypeScript", "TailwindCSS", "Framer Motion"] },
-  { title: "Backend & Apps", items: ["Node.js", "Flutter", "PostgreSQL", "Firebase", "AWS"] },
-  { title: "Integraciones", items: ["WhatsApp API", "Calendly", "Jotform", "Google Analytics", "Google Tag Manager"] },
+  { title: "Backend & Apps", items: ["Node.js", "Django", "PostgreSQL", "MongoDB", "AWS"] },
+  { title: "Integraciones", items: ["WhatsApp API", "Nubimetrics", "MELI", "Google Analytics", "Google Tag Manager"] },
 ];
 
 const TEAM = [
-  { initials: "MD", role: "Strategy & Growth", title: "Dirección Estratégica", desc: "Define la visión de cada proyecto y asegura que tecnología y negocio vayan en la misma dirección." },
-  { initials: "DEV", role: "Web, Apps & Sistemas", title: "Desarrollo", desc: "Construye desde landing pages hasta sistemas empresariales complejos con tecnología moderna." },
-  { initials: "UX", role: "Identidad Visual", title: "Diseño & Branding", desc: "Da forma a la identidad de marca y a la experiencia visual de cada producto digital." },
-  { initials: "ADS", role: "Adquisición", title: "Marketing & Performance", desc: "Gestiona campañas y estrategia digital con foco en resultados medibles, no en vanidad." },
+  { initials: "MD", role: "Dirección Estratégica", title: "El Maxi papa", desc: "Define la visión de cada proyecto y asegura que tecnología y negocio vayan en la misma dirección." },
+  { initials: "DEV", role: "Web, Apps & Sistemas", title: "Ramón Ramos", desc: "Construye desde landing pages hasta sistemas empresariales complejos y totalmente personalizados." },
+  { initials: "UX/IU", role: "Identidad Visual", title: "Margarita Novichkova", desc: "Da forma a la identidad de marca y a la experiencia visual de cada producto digital." },
+  { initials: "ADS", role: "Marketing & Performance", title: "Margarita de nuevo", desc: "Gestiona campañas y estrategia digital con foco en resultados medibles, no en vanidad." },
+  { initials: "ADS", role: "Gestión de Logística", title: "Valentín", desc: "Organiza y coordina las operaciones logísticas para garantizar la eficiencia en la entrega de productos y/o servicios." },
+  { initials: "ADS", role: "Diseñador Audiovisual", title: "Deberíamos poner más?", desc: "Aiuda Margareth, ia tu sabes" },
 ];
 
 const WORK_PROCESS = [
-  { n: "01", title: "Primer contacto", desc: "Nos escribís por WhatsApp, formulario o agendás una llamada. Te respondemos en menos de 24 horas con un diagnóstico inicial." },
-  { n: "02", title: "Reunión de descubrimiento", desc: "Entendemos tu negocio en profundidad: objetivos, procesos actuales y restricciones reales. Sin esta etapa, ningún presupuesto es serio." },
-  { n: "03", title: "Propuesta y alcance", desc: "Te enviamos una propuesta concreta con alcance, tiempos y presupuesto definido. Nada de \"depende\" ni letra chica." },
-  { n: "04", title: "Desarrollo ágil", desc: "Trabajamos en sprints con entregas parciales. Vos ves avances reales, no solo un informe al final del proceso." },
-  { n: "05", title: "Lanzamiento y acompañamiento", desc: "Lanzamos en producción y seguimos midiendo resultados para optimizar lo que ya está funcionando." },
+  { n: "01", title: "Primer contacto", desc: "Nos escribís por WhatsApp, formulario o agendás una llamada. Obtendrás tu respuesta en 24 a 48horas con un diagnóstico inicial. Danos toda la info de una, porque sino es al reverendo pedo todo" },
+  { n: "02", title: "Reunión de descubrimiento", desc: "Seguramente que no tenes ni idea de lo que necesitas, pero como nosotros menos, vamos a finjir demencia todos y seguimos pa delante viejo nomassss" },
+  { n: "03", title: "Propuesta Personalizada", desc: "En base a todo lo hablado y escuchando tus problemas (como si fueramos tus pinches psicologos) te proponemos una solución a medida (a medida de nuestros bolsillos, meintras mas debamos, mas caro es)." },
+  { n: "04", title: "Entregas Parciales", desc: "Te proporcionamos un código de seguimiento para veas los avances reales, no solo un informe al final del proceso. Esto no fue idea mia y lo tengo que hacer igual pa un cliente. Esfuerzo = 100%. Reutilización = 200%" },
+  { n: "05", title: "Lanzamiento y acompañamiento", desc: "Lanzamos en producción, sale todo mal, debuggeamos, sigue mal y así seguimos hasta que algun dia pueda centrar un div sin la ayuda de chat-gpt (que cada dia se pone más choto, como yo)." },
 ];
 
 export default function NosotrosPage() {
@@ -126,6 +128,7 @@ export default function NosotrosPage() {
               Visión
             </h3>
             <p className="text-dc-muted text-[15px] leading-[1.75]">
+              Acá si nos ponemos serios, que te pensas que todo es joda. No papu acá se LA-BU-RA.
               Ser el ecosistema de referencia para que PYMES y profesionales
               de Latinoamérica digitalicen su operación completa, sin
               necesidad de coordinar múltiples proveedores ni perder
@@ -140,6 +143,7 @@ export default function NosotrosPage() {
               Cómo lo logramos
             </h3>
             <p className="text-dc-muted text-[15px] leading-[1.75]">
+              A veces ni nosotos sabemos como lo logramos, pero lo logramos. Vos confiá y mandanos tu dinerito.
               Combinando marketing, branding, desarrollo y automatización en
               un único proceso de trabajo. Cada proyecto se diseña pensando
               en el negocio completo, no en la entrega aislada de una pieza.

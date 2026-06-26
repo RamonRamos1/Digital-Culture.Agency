@@ -61,29 +61,31 @@ export default function CasesGrid() {
           return (
             <div
               key={c.title}
-              className="bg-dc-surface border border-dc-border rounded-xl overflow-hidden transition-all hover:-translate-y-1 hover:border-dc-blue/30"
+              className="flex h-full flex-col overflow-hidden rounded-xl border border-dc-border bg-dc-surface transition-all hover:-translate-y-1 hover:border-dc-blue/30"
             >
               <div className="h-40 bg-gradient-to-br from-dc-card to-dc-blue/5 flex items-center justify-center border-b border-dc-border font-display text-4xl font-bold tracking-tighter text-white/[0.07]">
                 {c.badge}
               </div>
-              <div className="p-7">
+              <div className="flex flex-1 flex-col p-7">
                 <div className="text-[11px] text-dc-cyan tracking-wide uppercase font-semibold mb-2.5">
                   {c.type}
                 </div>
                 <h3 className="font-display text-lg font-bold mb-2.5 tracking-tight">
                   {c.title}
                 </h3>
-                <p className="text-sm text-dc-muted leading-relaxed">{displayedText}</p>
-                <div className="mt-5 flex flex-col gap-3">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm text-dc-muted leading-relaxed flex-1">{displayedText}</p>
                   {shouldTruncate && (
                     <button
                       type="button"
                       onClick={() => toggleExpanded(index)}
-                      className="text-sm font-semibold text-dc-cyan hover:text-white transition"
+                      className="shrink-0 text-sm font-semibold text-dc-cyan hover:text-white transition"
                     >
                       {isExpanded ? "ver menos" : "ver más"}
                     </button>
                   )}
+                </div>
+                <div className="mt-auto pt-5">
                   <button
                     type="button"
                     className="inline-flex items-center justify-center rounded-full bg-dc-cyan px-4 py-2 text-sm font-semibold text-dc-dark transition hover:bg-white/90"

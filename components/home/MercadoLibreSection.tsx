@@ -19,10 +19,10 @@ const FEATURES = [
 ];
 
 const METRICS = [
-  { label: "Visitas mensuales", value: "+38%", width: "72%" },
-  { label: "Tasa de conversión", value: "+21%", width: "55%" },
-  { label: "Costo por venta", value: "−42%", width: "30%" },
-  { label: "Ventas netas", value: "+127%", width: "85%" },
+  { label: "Visitas mensuales", value: "+18%", width: "100%" },
+  { label: "Tasa de conversión", value: "+4,7%", width: "75%" },
+  { label: "Unidades Vendidas", value: "67", width: "67%" },
+  { label: "Compradores Recurrentes", value: "7%", width: "100%" },
 ];
 
 export default function MercadoLibreSection() {
@@ -41,6 +41,19 @@ export default function MercadoLibreSection() {
           No alcanza con publicar. La diferencia entre vender y escalar está
           en la estrategia de posicionamiento, competencia y publicidad.
         </p>
+
+        <div className="mt-6 rounded-xl border border-dc-orange/20 bg-gradient-to-br from-dc-orange/10 to-transparent p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)_inset]">
+          <div className="flex flex-wrap items-center gap-2 text-sm font-semibold text-dc-orange">
+            <span className="rounded-full bg-dc-orange/15 px-2.5 py-1">⚡ Calculadora automática</span>
+            <span className="rounded-full bg-emerald-500/10 px-2.5 py-1 text-emerald-300">
+              Somos Mercado Líder
+            </span>
+          </div>
+          <p className="mt-3 text-sm leading-relaxed text-dc-muted">
+            Automatizamos el cálculo de márgenes y te ayudamos a tomar decisiones
+            más rápidas con una estrategia pensada para vender mejor en Mercado Libre.
+          </p>
+        </div>
 
         <div className="flex flex-col gap-4 mt-10">
           {FEATURES.map((f) => (

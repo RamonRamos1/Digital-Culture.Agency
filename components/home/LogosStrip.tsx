@@ -70,12 +70,12 @@ const TECH_LOGOS = [
 
 export default function LogosStrip() {
   return (
-    <div className="px-6 md:px-12 py-10 border-t border-b border-dc-border bg-dc-dark">
-      <div className="flex items-center gap-4 overflow-hidden">
-        <span className="text-xs text-dc-muted tracking-wide uppercase whitespace-nowrap flex-shrink-0">
+    <div className="border-t border-b border-dc-border bg-dc-dark">
+      <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-10 md:flex-row md:items-center md:justify-between md:px-12">
+        <span className="flex-shrink-0 whitespace-nowrap text-xs uppercase tracking-[0.2em] text-dc-muted">
           Tecnologías que dominamos
         </span>
-        <div className="flex gap-5 flex-wrap items-center flex-1 overflow-hidden">
+        <div className="flex flex-1 flex-wrap items-center justify-start gap-3 sm:gap-4 md:gap-5 lg:gap-6">
           {TECH_LOGOS.map((tech) => {
             const logoSource = tech.svg.trim();
             const isInlineSvg = logoSource.startsWith("<");
@@ -83,13 +83,13 @@ export default function LogosStrip() {
             return (
               <span
                 key={tech.name}
-                className="relative flex h-12 w-12 items-center justify-center rounded-full bg-white/5 border border-white/10 overflow-hidden"
+                className="relative flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-white/5 p-2 shadow-sm shadow-black/20 sm:h-15 sm:w-15 md:h-16 md:w-16"
                 aria-label={tech.name}
                 title={tech.name}
               >
                 {isInlineSvg ? (
                   <span
-                    className="h-full w-full"
+                    className="flex h-full w-full items-center justify-center [&>svg]:h-full [&>svg]:w-full [&>svg]:max-h-full [&>svg]:max-w-full"
                     dangerouslySetInnerHTML={{ __html: logoSource }}
                   />
                 ) : (
@@ -97,8 +97,8 @@ export default function LogosStrip() {
                     src={logoSource}
                     alt={tech.name}
                     fill
-                    sizes="48px"
-                    className="object-contain"
+                    sizes="64px"
+                    className="object-contain p-1"
                   />
                 )}
               </span>

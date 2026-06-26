@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect, useState } from "react";
+
 const STEPS = [
   {
     n: 1,
@@ -22,6 +26,16 @@ const STEPS = [
 ];
 
 export default function ProcessSteps() {
+  const [activeStep, setActiveStep] = useState(0);
+
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STEPS.length);
+    }, 1500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
   return (
     <section className="bg-dc-dark px-6 md:px-12 py-24 md:py-28">
       <div className="text-center">
@@ -35,21 +49,38 @@ export default function ProcessSteps() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-14 relative">
-        <div className="hidden md:block absolute top-7 left-[12.5%] right-[12.5%] h-px bg-dc-border" />
-        {STEPS.map((s) => (
-          <div key={s.n} className="text-center px-4 relative z-10 group">
-            <div className="w-14 h-14 rounded-full bg-dc-surface border-2 border-dc-border flex items-center justify-center mx-auto mb-6 font-display text-lg font-bold text-dc-blue transition-colors group-hover:border-dc-blue group-hover:bg-dc-blue/10">
-              {s.n}
+      <div className="relative mt-14 grid grid-cols-2 gap-8 md:grid-cols-4">
+        <div className="absolute left-[12.5%] right-[12.5%] top-7 hidden h-px bg-dc-border md:block" />
+        {STEPS.map((s, index) => {
+          const isActive = index === activeStep;
+
+          return (
+            <div
+              key={s.n}
+              className={`group relative z-10 px-4 text-center transition-all duration-500 ease-out ${
+                isActive
+                  ? "scale-[1.03] opacity-100"
+                  : "opacity-60 saturate-50"
+              }`}
+            >
+              <div
+                className={`mx-auto mb-6 flex h-14 w-14 items-center justify-center rounded-full border-2 font-display text-lg font-bold text-dc-blue transition-all duration-500 ease-out ${
+                  isActive
+                    ? "border-dc-blue bg-dc-blue/15 shadow-[0_0_0_4px_rgba(55,113,255,0.16)]"
+                    : "border-dc-border bg-dc-surface"
+                }`}
+              >
+                {s.n}
+              </div>
+              <h4 className="mb-2 font-display text-base font-semibold">
+                {s.title}
+              </h4>
+              <p className="text-[13px] leading-relaxed text-dc-muted">
+                {s.desc}
+              </p>
             </div>
-            <h4 className="font-display text-base font-semibold mb-2">
-              {s.title}
-            </h4>
-            <p className="text-[13px] text-dc-muted leading-relaxed">
-              {s.desc}
-            </p>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </section>
   );

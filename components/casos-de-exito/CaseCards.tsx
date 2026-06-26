@@ -3,6 +3,15 @@
 import { useState } from "react";
 
 const DESCRIPTION_WORD_LIMIT = 40;
+const FILTER_OPTIONS = [
+  "Todos",
+  "Branding",
+  "Marketing",
+  "Soluciones/Automatizaciones",
+  "Web/App",
+  "Auditorías",
+  "Mercado Ads",
+];
 
 type CaseItem = {
   badge: string;
@@ -13,6 +22,7 @@ type CaseItem = {
   tech: string[];
   resultNum: string;
   resultTxt: string;
+  categories?: string[];
 };
 
 function getPreviewText(text: string, limit: number) {
@@ -21,20 +31,47 @@ function getPreviewText(text: string, limit: number) {
 }
 
 export default function CaseCards({ cases }: { cases: CaseItem[] }) {
-  const [expandedCases, setExpandedCases] = useState<Record<number, boolean>>({});
+  const [expandedCases, setExpandedCases] = useState<Record<string, boolean>>({});
+  const [activeFilter, setActiveFilter] = useState("Todos");
 
-  const toggleExpanded = (index: number) => {
+  const toggleExpanded = (title: string) => {
     setExpandedCases((prev) => ({
       ...prev,
-      [index]: !prev[index],
+      [title]: !prev[title],
     }));
   };
 
+  const visibleCases =
+    activeFilter === "Todos"
+      ? cases
+      : cases.filter((c) => c.categories?.includes(activeFilter));
+
   return (
     <section className="px-6 md:px-12 pb-24 md:pb-28">
+      <div className="mb-8 flex flex-wrap gap-2">
+        {FILTER_OPTIONS.map((option) => {
+          const isActive = activeFilter === option;
+
+          return (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setActiveFilter(option)}
+              className={`rounded-full border px-3.5 py-2 text-sm font-semibold transition ${
+                isActive
+                  ? "border-dc-cyan bg-dc-cyan text-dc-dark"
+                  : "border-dc-border bg-dc-surface text-dc-muted hover:border-dc-cyan hover:text-white"
+              }`}
+            >
+              {option}
+            </button>
+          );
+        })}
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {cases.map((c, index) => {
-          const isExpanded = expandedCases[index];
+        {visibleCases.map((c) => {
+          const isExpanded = expandedCases[c.title] ?? false;
           const problemPreview = isExpanded
             ? c.problem
             : getPreviewText(c.problem, DESCRIPTION_WORD_LIMIT);
@@ -75,7 +112,7 @@ export default function CaseCards({ cases }: { cases: CaseItem[] }) {
                 {needsTruncate && (
                   <button
                     type="button"
-                    onClick={() => toggleExpanded(index)}
+                    onClick={() => toggleExpanded(c.title)}
                     className="text-sm font-semibold text-dc-cyan hover:text-white transition mb-4"
                   >
                     {isExpanded ? "ver menos" : "ver más"}
