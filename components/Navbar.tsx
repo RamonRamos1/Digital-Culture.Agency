@@ -9,7 +9,6 @@ import clsx from "clsx";
 const NAV_LINKS = [
   { href: "/", label: "Inicio" },
   { href: "/soluciones", label: "Soluciones" },
-  { href: "/servicios", label: "Servicios" },
   { href: "/casos-de-exito", label: "Casos de Éxito" },
   { href: "/nosotros", label: "Sobre Nosotros" },
 ];

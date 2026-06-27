@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ArrowRight, PlayCircle } from "lucide-react";
 import LogosStrip from "@/components/home/LogosStrip";
 import ProblemsGrid from "@/components/home/ProblemsGrid";
-import ServicesGrid from "@/components/home/ServicesGrid";
 import ProcessSteps from "@/components/home/ProcessSteps";
 import MercadoLibreSection from "@/components/home/MercadoLibreSection";
 import CasesGrid from "@/components/home/CasesGrid";
@@ -54,7 +53,6 @@ export default function HomePage() {
 
       <LogosStrip />
       <ProblemsGrid />
-      <ServicesGrid />
       <ProcessSteps />
       <MercadoLibreSection />
       <CasesGrid />
