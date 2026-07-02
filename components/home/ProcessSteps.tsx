@@ -31,7 +31,7 @@ export default function ProcessSteps() {
   useEffect(() => {
     const interval = window.setInterval(() => {
       setActiveStep((prev) => (prev + 1) % STEPS.length);
-    }, 1500);
+    }, 800);
 
     return () => window.clearInterval(interval);
   }, []);
