@@ -1,6 +1,6 @@
 import PageHero from "@/components/PageHero";
-import QuickNavPills from "@/components/solutions/QuickNavPills";
 import ProblemSolutionBlock from "@/components/solutions/ProblemSolutionBlock";
+import ProblemsGrid from "@/components/solutions/ProblemsGrid";
 import CTAFinal from "@/components/CTAFinal";
 import { PROBLEM_SOLUTIONS } from "@/lib/solutions-data";
 
@@ -26,7 +26,7 @@ export default function SolucionesPage() {
         description="Decinos qué te está frenando hoy. Nosotros te mostramos exactamente qué hacemos para resolverlo."
       />
 
-      <QuickNavPills />
+      <ProblemsGrid />
 
       {PROBLEM_SOLUTIONS.map((data, i) => (
         <ProblemSolutionBlock key={data.id} data={data} index={i} />

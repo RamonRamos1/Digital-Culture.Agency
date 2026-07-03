@@ -54,37 +54,30 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
     ),
   },
   {
-    id: "mercadolibre",
+    id: "presencia-digital",
     numLabel: "PROBLEMA 02",
-    question: "Quiero vender más en Mercado Libre",
+    question: "Necesito presencia digital",
     problemDesc:
-      "Competís por precio y tu margen se reduce cada mes. Necesitás posicionamiento estratégico, no solo bajar precios.",
+      "Sin web ni identidad visual profesional, tus clientes potenciales eligen a la competencia antes de conocerte.",
     solutions: [
       {
-        icon: Search,
-        title: "Auditoría de cuenta",
-        desc: "Analizamos tus publicaciones, reputación y métricas actuales para identificar qué está frenando tus ventas.",
-        tags: ["Auditoría completa", "Diagnóstico"],
+        icon: Users,
+        title: "Branding e identidad visual",
+        desc: "Logo, manual de marca y diseño corporativo consistente en todos tus puntos de contacto.",
+        tags: ["Logo", "Manual de marca"],
       },
       {
-        icon: ShoppingCart,
-        title: "Investigación de mercado y competencia",
-        desc: "Benchmarking de precios, demanda y oportunidades de categoría que tus competidores no están viendo.",
-        tags: ["Análisis de precios", "Benchmarking"],
-      },
-      {
-        icon: TrendingUp,
-        title: "Mercado Ads + Optimización SEO",
-        desc: "Posicionamiento orgánico y pago combinados para aparecer antes que tu competencia en cada búsqueda relevante.",
-        tags: ["Mercado Ads", "SEO interno"],
+        icon: Monitor,
+        title: "Sitio web corporativo",
+        desc: "Un sitio que transmite autoridad y profesionalismo, construido con tecnología moderna y diseño premium.",
+        tags: ["Next.js", "Mobile first"],
       },
     ],
     resultText: (
       <>
-        Resultado típico: <strong className="text-dc-orange">mayor visibilidad y conversión</strong> sin depender únicamente de bajar el precio.
+        Resultado típico: <strong className="text-dc-cyan">primera impresión profesional</strong> que genera confianza antes del primer contacto.
       </>
     ),
-    themeOrange: true,
   },
   {
     id: "automatizar",
@@ -134,37 +127,42 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
     ],
     resultText: (
       <>
-        Este tipo de proyecto requiere una{" "}
-        <strong className="text-dc-cyan">reunión de descubrimiento</strong>{" "}
-        antes de definir alcance y presupuesto.
+        Este tipo de proyecto requiere una <strong className="text-dc-cyan">reunión de descubrimiento</strong> antes de definir alcance y presupuesto.
       </>
     ),
     isDiscovery: true,
   },
   {
-    id: "presencia-digital",
+    id: "mercadolibre",
     numLabel: "PROBLEMA 05",
-    question: "Necesito presencia digital",
+    question: "Quiero vender más en Mercado Libre",
     problemDesc:
-      "Sin web ni identidad visual profesional, tus clientes potenciales eligen a la competencia antes de conocerte.",
+      "Competís por precio y tu margen se reduce cada mes. Necesitás posicionamiento estratégico, no solo bajar precios.",
     solutions: [
       {
-        icon: Users,
-        title: "Branding e identidad visual",
-        desc: "Logo, manual de marca y diseño corporativo consistente en todos tus puntos de contacto.",
-        tags: ["Logo", "Manual de marca"],
+        icon: Search,
+        title: "Auditoría de cuenta",
+        desc: "Analizamos tus publicaciones, reputación y métricas actuales para identificar qué está frenando tus ventas.",
+        tags: ["Auditoría completa", "Diagnóstico"],
       },
       {
-        icon: Monitor,
-        title: "Sitio web corporativo",
-        desc: "Un sitio que transmite autoridad y profesionalismo, construido con tecnología moderna y diseño premium.",
-        tags: ["Next.js", "Mobile first"],
+        icon: ShoppingCart,
+        title: "Investigación de mercado y competencia",
+        desc: "Benchmarking de precios, demanda y oportunidades de categoría que tus competidores no están viendo.",
+        tags: ["Análisis de precios", "Benchmarking"],
+      },
+      {
+        icon: TrendingUp,
+        title: "Mercado Ads + Optimización SEO",
+        desc: "Posicionamiento orgánico y pago combinados para aparecer antes que tu competencia en cada búsqueda relevante.",
+        tags: ["Mercado Ads", "SEO interno"],
       },
     ],
     resultText: (
       <>
-        Resultado típico: <strong className="text-dc-cyan">primera impresión profesional</strong> que genera confianza antes del primer contacto.
+        Resultado típico: <strong className="text-dc-orange">mayor visibilidad y conversión</strong> sin depender únicamente de bajar el precio.
       </>
     ),
+    themeOrange: true,
   },
-];
+  ];
