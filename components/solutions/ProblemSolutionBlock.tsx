@@ -57,7 +57,16 @@ export default function ProblemSolutionBlock({
             → Así lo resolvemos
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div
+            className={clsx(
+              "grid grid-cols-1 sm:grid-cols-2 gap-4",
+              data.solutions.length >= 4
+                ? "lg:grid-cols-4"
+                : data.solutions.length === 3
+                ? "lg:grid-cols-3"
+                : "lg:grid-cols-2"
+            )}
+          >
             {visibleSolutions.map((sol) => (
               <div
                 key={sol.title}
@@ -103,7 +112,7 @@ export default function ProblemSolutionBlock({
 
                 <a
                   href={makeWhatsAppLink(
-                    `Quiero consultar sobre ${sol.title} y el problema: ${data.problemDesc}`
+                    `Me podrían enviar más información sobre ${sol.title}`
                   )}
                   target="_blank"
                   rel="noopener noreferrer"

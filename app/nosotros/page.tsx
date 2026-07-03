@@ -29,12 +29,10 @@ const TECH_CATEGORIES = [
 ];
 
 const TEAM = [
-  { initials: "MD", role: "Dirección Estratégica", title: "El Maxi papa", desc: "Define la visión de cada proyecto y asegura que tecnología y negocio vayan en la misma dirección." },
-  { initials: "DEV", role: "Web, Apps & Sistemas", title: "Ramón Ramos", desc: "Construye desde landing pages hasta sistemas empresariales complejos y totalmente personalizados." },
-  { initials: "UX/IU", role: "Identidad Visual", title: "Margarita Novichkova", desc: "Da forma a la identidad de marca y a la experiencia visual de cada producto digital." },
-  { initials: "ADS", role: "Marketing & Performance", title: "Margarita de nuevo", desc: "Gestiona campañas y estrategia digital con foco en resultados medibles, no en vanidad." },
-  { initials: "ADS", role: "Gestión de Logística", title: "Valentín", desc: "Organiza y coordina las operaciones logísticas para garantizar la eficiencia en la entrega de productos y/o servicios." },
-  { initials: "ADS", role: "Diseñador Audiovisual", title: "Deberíamos poner más?", desc: "Aiuda Margareth, ia tu sabes" },
+  { initials: "Dirección de Comercialización", role: "Dirección De Ventas", title: "Maximiliano Iasuozzi", desc: "Asegura que la visión y el marketing del negocio de forma Online esté sintonizada con los procesos de venta Presencial" },
+  { initials: "Desarrollador/Programador", role: "Arquitectura de Sistemas Informáticos", title: "Ramón Ramos", desc: "Supervisión del proyecto desde la propuetsa inciia, las presentaciones parciales, hasta la entrega final del proyecto asegurando el cumplimiento de plazos y calidad pactada." },
+  { initials: "Marketing y Diseño", role: "Directora del Área de Marketing y Diseño", title: "Margarita Novichkova", desc: "Generación de nuevos clientes potenciales (leads) y refuerzo de identidad de marca para fomentar la retención" },
+  { initials: "Desarrollador Ciencia de Datos", role: "Programador Back-End", title: "Valentín Albornoz", desc: "Desarrolla soluciones de análisis de datos y automatización de procesos." },
 ];
 
 const WORK_PROCESS = [
@@ -61,7 +59,7 @@ export default function NosotrosPage() {
             .
           </>
         }
-        description="Digital Culture nació para resolver algo que vemos todos los días: empresas que necesitan marketing, tecnología y software trabajando juntos, no por separado."
+        description="Ayudamos a negocios que necesitan vender más y dejar de gastar horas en tareas manuales. Marketing, diseño, tecnología y automatización trabajando juntos para resultados reales."
       />
 
       {/* QUIENES SOMOS */}
@@ -76,26 +74,19 @@ export default function NosotrosPage() {
         <div className="grid grid-cols-1 md:grid-cols-[0.9fr_1.1fr] gap-14 md:gap-16 mt-12 items-start">
           <div className="flex flex-col gap-5 text-dc-muted text-[16px] leading-relaxed">
             <p>
-              Digital Culture es un{" "}
-              <strong className="text-dc-text font-semibold">
-                ecosistema de transformación digital
-              </strong>{" "}
-              formado por especialistas en marketing, diseño, desarrollo y
-              automatización que trabajan bajo una misma estrategia.
+              Digital Culture es un equipo que combina marketing, diseño,
+              desarrollo y automatización para que tu negocio deje de depender
+              de suposiciones y trabajo manual.
             </p>
             <p>
-              No tercerizamos partes del proyecto a equipos externos
-              desconectados entre sí. Cada disciplina convive en el mismo
-              equipo, lo que nos permite pensar en{" "}
-              <strong className="text-dc-text font-semibold">
-                soluciones integrales
-              </strong>{" "}
-              en lugar de servicios sueltos.
+              No tercerizamos partes del proyecto a equipos desconectados.
+              Cada área trabaja junta desde el principio, para que el resultado
+              funcione en ventas, operación y experiencia al mismo tiempo.
             </p>
             <p>
-              Trabajamos con PYMES, comercios, profesionales y empresas de
-              servicios que entienden que competir hoy requiere algo más que
-              una página web bonita: requiere un sistema que funcione.
+              Nos focalizamos en pymes y comercios que necesitan vender más,
+              reducir la carga de tareas repetitivas y tener un sistema digital
+              que realmente responda a su negocio.
             </p>
           </div>
 
@@ -128,11 +119,10 @@ export default function NosotrosPage() {
               Visión
             </h3>
             <p className="text-dc-muted text-[15px] leading-[1.75]">
-              Acá si nos ponemos serios, que te pensas que todo es joda. No papu acá se LA-BU-RA.
-              Ser el ecosistema de referencia para que PYMES y profesionales
-              de Latinoamérica digitalicen su operación completa, sin
-              necesidad de coordinar múltiples proveedores ni perder
-              coherencia entre marca, tecnología y procesos.
+              Ser el socio digital que ayuda a empresas a vender más y a dejar
+              de perder tiempo en procesos manuales. Queremos que las PYMES
+              puedan digitalizar su operación sin multiplicar proveedores ni
+              perder el control de su negocio.
             </p>
           </div>
           <div className="bg-dc-surface p-11">
@@ -143,10 +133,8 @@ export default function NosotrosPage() {
               Cómo lo logramos
             </h3>
             <p className="text-dc-muted text-[15px] leading-[1.75]">
-              A veces ni nosotos sabemos como lo logramos, pero lo logramos. Vos confiá y mandanos tu dinerito.
-              Combinando marketing, branding, desarrollo y automatización en
-              un único proceso de trabajo. Cada proyecto se diseña pensando
-              en el negocio completo, no en la entrega aislada de una pieza.
+              Lo logramos integrando estrategia, marca, sistemas y
+              automatizaciones en un solo proyecto. No entregamos piezas sueltas: construimos soluciones que ayudan a vender más y a liberar tiempo en tu operación.
             </p>
           </div>
         </div>
@@ -222,18 +210,22 @@ export default function NosotrosPage() {
           de cada proyecto
         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-14">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 mt-14">
           {TEAM.map((member) => (
             <div
               key={member.initials}
               className="bg-dc-surface border border-dc-border rounded-xl overflow-hidden transition-all hover:-translate-y-1 hover:border-dc-blue/30"
             >
-              <div className="h-40 bg-gradient-to-br from-dc-card to-dc-blue/[0.08] flex items-center justify-center border-b border-dc-border">
-                <div className="w-16 h-16 rounded-full bg-dc-blue/15 border border-dc-blue/30 flex items-center justify-center font-display text-xl font-bold text-dc-cyan">
-                  {member.initials}
+              <div className="relative h-40 bg-gradient-to-br from-dc-card to-dc-blue/[0.08] flex items-center justify-center border-b border-dc-border">
+                <div className="absolute top-5">
+                  <div className="w-24 h-24 rounded-full bg-dc-dark border border-dc-border overflow-hidden flex items-center justify-center">
+                    <span className="text-dc-cyan font-display font-bold text-lg">
+                      {member.initials}
+                    </span>
+                  </div>
                 </div>
               </div>
-              <div className="p-5">
+              <div className="pt-16 p-5">
                 <h4 className="font-display text-[15px] font-semibold mb-1 tracking-tight">
                   {member.title}
                 </h4>

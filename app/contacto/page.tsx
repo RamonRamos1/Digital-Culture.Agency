@@ -39,7 +39,9 @@ export default function ContactoPage() {
 
           <div className="flex flex-col gap-3.5 mb-12">
             <a
-              href={getWhatsAppLink("Hola, quiero contarte sobre mi proyecto")}
+              href={`https://wa.me/5492604828329?text=${encodeURIComponent(
+                "Tengo un negocio de ..... y necesitaba información sobre ......"
+              )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-5 bg-dc-surface border border-dc-border rounded-lg transition-all hover:border-[#25D366]/40 hover:bg-dc-card group"

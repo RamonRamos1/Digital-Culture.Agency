@@ -157,6 +157,12 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
         desc: "Posicionamiento orgánico y pago combinados para aparecer antes que tu competencia en cada búsqueda relevante.",
         tags: ["Mercado Ads", "SEO interno"],
       },
+      {
+        icon: Network,
+        title: "Somos Importadores",
+        desc: "Podemos buscarte proveedores directos de fábrica, distribuidora oficial o podemos ser directamente tu proveedor importando directo de China o cualquier parte del mundo.",
+        tags: ["Proveedores", "Importadores Directos"],
+      },
     ],
     resultText: (
       <>
