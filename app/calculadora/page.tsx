@@ -12,6 +12,8 @@ export default function CalculadoraPage() {
     <>
       <PageHero
         eyebrow="Calculadora de Proyectos"
+        backHref="/soluciones"
+        backLabel="Volver"
         title={
           <>
             Estimá tu proyecto

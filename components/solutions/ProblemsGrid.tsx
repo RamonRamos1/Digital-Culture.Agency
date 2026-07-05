@@ -5,7 +5,7 @@ import makeWhatsAppLink from "@/lib/whatsapp";
 import clsx from "clsx";
 
 export default function ProblemsGrid() {
-  const problems = PROBLEM_SOLUTIONS.slice(0, 6);
+  const problems = PROBLEM_SOLUTIONS.slice(0, 5);
 
   const truncate = (s: string, n = 120) =>
     s && s.length > n ? s.slice(0, n - 1) + "…" : s;
@@ -61,9 +61,7 @@ export default function ProblemsGrid() {
 
               <div className="flex items-center justify-between gap-3">
                 <a
-                  href={makeWhatsAppLink(
-                    `Quiero consultar sobre ${p.question} y el problema: ${p.problemDesc}`
-                  )}
+                  href={makeWhatsAppLink(`Quiero más información sobre ${p.question}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={clsx(
@@ -75,10 +73,10 @@ export default function ProblemsGrid() {
                 </a>
 
                 <a
-                  href={`#${p.id}`}
+                  href={`/soluciones/${p.id}`}
                   className="text-sm text-dc-muted hover:text-dc-text"
                 >
-                  Ver detalles
+                  Ver landing
                 </a>
               </div>
             </div>

@@ -1,8 +1,6 @@
 import PageHero from "@/components/PageHero";
-import ProblemSolutionBlock from "@/components/solutions/ProblemSolutionBlock";
 import ProblemsGrid from "@/components/solutions/ProblemsGrid";
 import CTAFinal from "@/components/CTAFinal";
-import { PROBLEM_SOLUTIONS } from "@/lib/solutions-data";
 
 export const metadata = {
   title: "Soluciones | Digital Culture",
@@ -27,10 +25,6 @@ export default function SolucionesPage() {
       />
 
       <ProblemsGrid />
-
-      {PROBLEM_SOLUTIONS.map((data, i) => (
-        <ProblemSolutionBlock key={data.id} data={data} index={i} />
-      ))}
 
       <CTAFinal
         title={

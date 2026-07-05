@@ -111,9 +111,7 @@ export default function ProblemSolutionBlock({
                 </div>
 
                 <a
-                  href={makeWhatsAppLink(
-                    `Me podrían enviar más información sobre ${sol.title}`
-                  )}
+                  href={makeWhatsAppLink(`Quiero más información sobre ${sol.title}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={clsx(
