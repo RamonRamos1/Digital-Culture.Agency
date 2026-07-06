@@ -21,7 +21,7 @@ export const COMPLEX_TYPES = ["sistema", "app"];
 
 export const PROJECT_TYPES: ProjectType[] = [
   { id: "webs", name: "Webs / Ecommerce", desc: "Landing, corporativa o tienda online", icon: Building2 },
-  { id: "ecommerce", name: "Ecommerce", desc: "Tienda online con pagos y stock", icon: ShoppingCart },
+  { id: "ecommerce", name: "Mercado Libre", desc: "Creamos sistemas y métodos, no aspiraciones ni esperando milagros", icon: ShoppingCart },
   { id: "branding", name: "Branding", desc: "Identidad visual completa", icon: Palette },
   { id: "marketing", name: "Marketing Digital", desc: "Campañas y estrategia digital", icon: TrendingUp },
   { id: "sistema", name: "Sistema a Medida", desc: "Software personalizado", icon: Network },
@@ -123,53 +123,16 @@ export function getEstimate(
 ): [number, number] {
   if (projectType === "webs") {
     const websiteType = estimateOptions?.websiteType ?? "landing";
-    const isLanding = websiteType === "landing";
 
-    if (isLanding) {
-      const sectionsCost = quantity * 50;
-      let min = sectionsCost;
-      let max = sectionsCost;
-
-      if (estimateOptions?.multilingual) {
-        const extraLanguages = Math.max(0, (estimateOptions.languageCount ?? 2) - 1);
-        const languageCost = extraLanguages * 100;
-        min += languageCost;
-        max += languageCost;
-      }
-
-      if (estimateOptions?.contactForm) {
-        min += 50;
-        max += 50;
-      }
-
-      return [Math.round(min / 50) * 50, Math.round(max / 50) * 50];
+    if (websiteType === "landing") {
+      return [300, 400];
     }
 
-    const base = [700, 1800] as [number, number];
-    let [min, max] = base;
-
-    const pagesCost = quantity * 80;
-    min += pagesCost;
-    max += pagesCost;
-
-    if (estimateOptions?.contactForm) {
-      min += 50;
-      max += 50;
+    if (websiteType === "corporativa") {
+      return [600, 800];
     }
 
-    if (estimateOptions?.multilingual) {
-      const extraLanguages = Math.max(0, (estimateOptions.languageCount ?? 2) - 1);
-      const languageCost = extraLanguages * 100;
-      min += languageCost;
-      max += languageCost;
-    }
-
-    if (estimateOptions?.dashboard) {
-      min += 150;
-      max += 150;
-    }
-
-    return [Math.round(min / 50) * 50, Math.round(max / 50) * 50];
+    return [1200, 3500];
   }
 
   if (projectType === "ecommerce") {

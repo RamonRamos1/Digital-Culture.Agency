@@ -5,12 +5,7 @@ import { Check, ArrowRight, ArrowLeft, AlertCircle, Calendar } from "lucide-reac
 import clsx from "clsx";
 import WhatsAppIcon from "@/components/WhatsAppIcon";
 import { getWhatsAppLink, getCalendlyLink } from "@/lib/links";
-import {
-  PROJECT_TYPES,
-  isComplexType,
-  getEstimate,
-  getServiceOptions,
-} from "@/lib/calculator-data";
+import { PROJECT_TYPES, isComplexType, getEstimate, getServiceOptions } from "@/lib/calculator-data";
 
 type Step = 0 | 1 | 2;
 
@@ -30,6 +25,8 @@ export default function CalculatorWidget() {
   const [step, setStep] = useState<Step>(0);
   const [projectType, setProjectType] = useState<string | null>(null);
   const [quantity, setQuantity] = useState(5);
+  const [websiteType, setWebsiteType] = useState<"landing" | "corporativa" | "ecommerce">("landing");
+  const [commerceStage, setCommerceStage] = useState<string | null>(null);
   const [subservices, setSubservices] = useState<string[]>([]);
   const [isMultilingual, setIsMultilingual] = useState(false);
   const [languageCount, setLanguageCount] = useState(2);
@@ -43,7 +40,6 @@ export default function CalculatorWidget() {
   const complex = isComplexType(projectType);
   const totalSteps = complex ? 2 : 3;
   const resultStepIndex = complex ? 1 : 2;
-  const availableSubservices = getServiceOptions(projectType);
 
   const toggleSubservice = (id: string) => {
     setSubservices((prev) =>
@@ -55,6 +51,8 @@ export default function CalculatorWidget() {
     setStep(0);
     setProjectType(null);
     setQuantity(5);
+    setWebsiteType("landing");
+    setCommerceStage(null);
     setSubservices([]);
     setIsMultilingual(false);
     setLanguageCount(2);
@@ -108,7 +106,9 @@ export default function CalculatorWidget() {
                   key={t.id}
                   onClick={() => {
                     setProjectType(t.id);
-                    setQuantity(t.id === "landing" ? 4 : 5);
+                    setQuantity(5);
+                    setWebsiteType("landing");
+                    setCommerceStage(null);
                     setSubservices([]);
                     setIsMultilingual(false);
                     setLanguageCount(2);
@@ -291,6 +291,83 @@ export default function CalculatorWidget() {
                 })}
               </div>
             </div>
+          ) : projectType === "webs" ? (
+            <div className="space-y-4 mt-8">
+              <div className="text-sm text-dc-muted mb-3.5">
+                Elegí el tipo de proyecto
+              </div>
+              <div className="grid grid-cols-1 gap-3.5">
+                {[
+                  { id: "landing", label: "Landing Page" },
+                  { id: "corporativa", label: "Web Corporativa" },
+                  { id: "ecommerce", label: "E-COMMERCE" },
+                ].map((option) => {
+                  const selected = websiteType === option.id;
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => setWebsiteType(option.id as "landing" | "corporativa" | "ecommerce")}
+                      className={clsx(
+                        "relative text-left border rounded-lg p-[18px] transition-all bg-dc-dark",
+                        selected
+                          ? "border-dc-blue bg-dc-blue/[0.08]"
+                          : "border-dc-border hover:border-dc-blue/40"
+                      )}
+                    >
+                      <div
+                        className={clsx(
+                          "absolute top-4 right-4 w-[18px] h-[18px] rounded-full border flex items-center justify-center",
+                          selected ? "bg-dc-blue border-dc-blue" : "border-dc-border"
+                        )}
+                      >
+                        {selected && <Check size={10} className="text-white" strokeWidth={3} />}
+                      </div>
+                      <h4 className="font-display text-sm font-semibold">{option.label}</h4>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+          ) : projectType === "ecommerce" ? (
+            <div className="space-y-4 mt-8">
+              <div className="text-sm text-dc-muted mb-3.5">
+                ¿En qué etapa se encuentra tu comercio actualmente?
+              </div>
+              <div className="grid grid-cols-1 gap-3.5">
+                {[
+                  { id: "lanzamiento", label: "Lanzamiento de cuenta" },
+                  { id: "escalar", label: "Escalar mi negocio" },
+                  { id: "asesoria", label: "Asesoría Contable/Financiera" },
+                  { id: "sociedad", label: "Aperturar mi propia Sociedad" },
+                ].map((option) => {
+                  const selected = commerceStage === option.id;
+                  return (
+                    <button
+                      key={option.id}
+                      type="button"
+                      onClick={() => setCommerceStage(option.id)}
+                      className={clsx(
+                        "relative text-left border rounded-lg p-[18px] transition-all bg-dc-dark",
+                        selected
+                          ? "border-dc-blue bg-dc-blue/[0.08]"
+                          : "border-dc-border hover:border-dc-blue/40"
+                      )}
+                    >
+                      <div
+                        className={clsx(
+                          "absolute top-4 right-4 w-[18px] h-[18px] rounded-full border flex items-center justify-center",
+                          selected ? "bg-dc-blue border-dc-blue" : "border-dc-border"
+                        )}
+                      >
+                        {selected && <Check size={10} className="text-white" strokeWidth={3} />}
+                      </div>
+                      <h4 className="font-display text-sm font-semibold">{option.label}</h4>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           ) : (
             <div className="flex items-center gap-4 mb-8">
               <label className="text-sm text-dc-muted min-w-[140px]">
@@ -311,130 +388,132 @@ export default function CalculatorWidget() {
             </div>
           )}
 
-          {projectType === "landing" || projectType === "web" ? (
-            <div className="space-y-4 mt-8">
-              <div className="rounded-xl border border-dc-border bg-dc-dark p-4">
-                <button
-                  type="button"
-                  onClick={() => setIsMultilingual((prev) => !prev)}
-                  className="flex w-full items-center justify-between gap-3 text-left"
-                >
-                  <div>
-                    <div className="font-display text-sm font-semibold">¿Querés que sea multilingüe?</div>
-                    <div className="text-xs text-dc-muted mt-1">Sumá 100 USD por cada idioma adicional.</div>
-                  </div>
-                  <div
-                    className={clsx(
-                      "flex h-6 w-11 items-center rounded-full px-1 transition-colors",
-                      isMultilingual ? "bg-dc-blue" : "bg-dc-border"
-                    )}
+          {projectType !== "webs" && projectType !== "ecommerce" && (
+            projectType === "landing" || projectType === "web" ? (
+              <div className="space-y-4 mt-8">
+                <div className="rounded-xl border border-dc-border bg-dc-dark p-4">
+                  <button
+                    type="button"
+                    onClick={() => setIsMultilingual((prev) => !prev)}
+                    className="flex w-full items-center justify-between gap-3 text-left"
                   >
-                    <div className={clsx("h-4 w-4 rounded-full bg-white transition-transform", isMultilingual ? "translate-x-5" : "translate-x-0")} />
-                  </div>
-                </button>
+                    <div>
+                      <div className="font-display text-sm font-semibold">¿Querés que sea multilingüe?</div>
+                      <div className="text-xs text-dc-muted mt-1">Sumá 100 USD por cada idioma adicional.</div>
+                    </div>
+                    <div
+                      className={clsx(
+                        "flex h-6 w-11 items-center rounded-full px-1 transition-colors",
+                        isMultilingual ? "bg-dc-blue" : "bg-dc-border"
+                      )}
+                    >
+                      <div className={clsx("h-4 w-4 rounded-full bg-white transition-transform", isMultilingual ? "translate-x-5" : "translate-x-0")} />
+                    </div>
+                  </button>
 
-                {isMultilingual && (
-                  <div className="mt-4 flex items-center gap-4">
-                    <label className="text-sm text-dc-muted min-w-[140px]">Cantidad de idiomas</label>
-                    <input
-                      type="range"
-                      min={2}
-                      max={5}
-                      step={1}
-                      value={languageCount}
-                      onChange={(e) => setLanguageCount(parseInt(e.target.value))}
-                      className="flex-1 accent-dc-blue"
-                    />
-                    <span className="font-display text-[15px] font-semibold text-dc-cyan min-w-[90px] text-right">
-                      {languageCount} {languageCount === 1 ? "idioma" : "idiomas"}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              <button
-                type="button"
-                onClick={() => setHasContactForm((prev) => !prev)}
-                className={clsx(
-                  "flex w-full items-center justify-between rounded-xl border p-4 text-left transition-all",
-                  hasContactForm
-                    ? "border-dc-blue bg-dc-blue/[0.08]"
-                    : "border-dc-border bg-dc-dark hover:border-dc-blue/40"
-                )}
-              >
-                <div>
-                  <div className="font-display text-sm font-semibold">Formulario de contacto</div>
-                  <div className="text-xs text-dc-muted mt-1">Agregá un formulario por 50 USD.</div>
-                </div>
-                <div
-                  className={clsx(
-                    "flex h-6 w-11 items-center rounded-full px-1 transition-colors",
-                    hasContactForm ? "bg-dc-blue" : "bg-dc-border"
+                  {isMultilingual && (
+                    <div className="mt-4 flex items-center gap-4">
+                      <label className="text-sm text-dc-muted min-w-[140px]">Cantidad de idiomas</label>
+                      <input
+                        type="range"
+                        min={2}
+                        max={5}
+                        step={1}
+                        value={languageCount}
+                        onChange={(e) => setLanguageCount(parseInt(e.target.value))}
+                        className="flex-1 accent-dc-blue"
+                      />
+                      <span className="font-display text-[15px] font-semibold text-dc-cyan min-w-[90px] text-right">
+                        {languageCount} {languageCount === 1 ? "idioma" : "idiomas"}
+                      </span>
+                    </div>
                   )}
-                >
-                  <div className={clsx("h-4 w-4 rounded-full bg-white transition-transform", hasContactForm ? "translate-x-5" : "translate-x-0")} />
                 </div>
-              </button>
 
-              {projectType === "web" && (
                 <button
                   type="button"
-                  onClick={() => setHasDashboard((prev) => !prev)}
+                  onClick={() => setHasContactForm((prev) => !prev)}
                   className={clsx(
                     "flex w-full items-center justify-between rounded-xl border p-4 text-left transition-all",
-                    hasDashboard
+                    hasContactForm
                       ? "border-dc-blue bg-dc-blue/[0.08]"
                       : "border-dc-border bg-dc-dark hover:border-dc-blue/40"
                   )}
                 >
                   <div>
-                    <div className="font-display text-sm font-semibold">Dashboard de métricas</div>
-                    <div className="text-xs text-dc-muted mt-1">Incluye analítica de tu web por 150 USD.</div>
+                    <div className="font-display text-sm font-semibold">Formulario de contacto</div>
+                    <div className="text-xs text-dc-muted mt-1">Agregá un formulario por 50 USD.</div>
                   </div>
                   <div
                     className={clsx(
                       "flex h-6 w-11 items-center rounded-full px-1 transition-colors",
-                      hasDashboard ? "bg-dc-blue" : "bg-dc-border"
+                      hasContactForm ? "bg-dc-blue" : "bg-dc-border"
                     )}
                   >
-                    <div className={clsx("h-4 w-4 rounded-full bg-white transition-transform", hasDashboard ? "translate-x-5" : "translate-x-0")} />
+                    <div className={clsx("h-4 w-4 rounded-full bg-white transition-transform", hasContactForm ? "translate-x-5" : "translate-x-0")} />
                   </div>
                 </button>
-              )}
-            </div>
-          ) : (
-            <>
-              <div className="text-sm text-dc-muted mb-3.5 mt-8">
-                ¿Querés sumar alguno de estos subservicios?
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                {availableSubservices.map((item) => {
-                  const selected = subservices.includes(item.id);
-                  return (
-                    <button
-                      key={item.id}
-                      onClick={() => toggleSubservice(item.id)}
+
+                {projectType === "web" && (
+                  <button
+                    type="button"
+                    onClick={() => setHasDashboard((prev) => !prev)}
+                    className={clsx(
+                      "flex w-full items-center justify-between rounded-xl border p-4 text-left transition-all",
+                      hasDashboard
+                        ? "border-dc-blue bg-dc-blue/[0.08]"
+                        : "border-dc-border bg-dc-dark hover:border-dc-blue/40"
+                    )}
+                  >
+                    <div>
+                      <div className="font-display text-sm font-semibold">Dashboard de métricas</div>
+                      <div className="text-xs text-dc-muted mt-1">Incluye analítica de tu web por 150 USD.</div>
+                    </div>
+                    <div
                       className={clsx(
-                        "relative text-left border rounded-lg p-[18px] transition-all bg-dc-dark",
-                        selected
-                          ? "border-dc-blue bg-dc-blue/[0.08]"
-                          : "border-dc-border hover:border-dc-blue/40"
+                        "flex h-6 w-11 items-center rounded-full px-1 transition-colors",
+                        hasDashboard ? "bg-dc-blue" : "bg-dc-border"
                       )}
                     >
-                      <div
+                      <div className={clsx("h-4 w-4 rounded-full bg-white transition-transform", hasDashboard ? "translate-x-5" : "translate-x-0")} />
+                    </div>
+                  </button>
+                )}
+              </div>
+            ) : (
+              <>
+                <div className="text-sm text-dc-muted mb-3.5 mt-8">
+                  ¿Querés sumar alguno de estos subservicios?
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  {getServiceOptions(projectType).map((item) => {
+                    const selected = subservices.includes(item.id);
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => toggleSubservice(item.id)}
                         className={clsx(
-                          "absolute top-4 right-4 w-[18px] h-[18px] rounded-full border flex items-center justify-center",
-                          selected ? "bg-dc-blue border-dc-blue" : "border-dc-border"
+                          "relative text-left border rounded-lg p-[18px] transition-all bg-dc-dark",
+                          selected
+                            ? "border-dc-blue bg-dc-blue/[0.08]"
+                            : "border-dc-border hover:border-dc-blue/40"
                         )}
                       >
-                        {selected && <Check size={10} className="text-white" strokeWidth={3} />}
-                      </div>
-                      <h4 className="font-display text-sm font-semibold">{item.name}</h4>
-                    </button>
-                  );
-                })}
-              </div>
-            </>
+                        <div
+                          className={clsx(
+                            "absolute top-4 right-4 w-[18px] h-[18px] rounded-full border flex items-center justify-center",
+                            selected ? "bg-dc-blue border-dc-blue" : "border-dc-border"
+                          )}
+                        >
+                          {selected && <Check size={10} className="text-white" strokeWidth={3} />}
+                        </div>
+                        <h4 className="font-display text-sm font-semibold">{item.name}</h4>
+                      </button>
+                    );
+                  })}
+                </div>
+              </>
+            )
           )}
 
           <div className="flex justify-between mt-10">
@@ -465,6 +544,8 @@ export default function CalculatorWidget() {
           languageCount={languageCount}
           hasContactForm={hasContactForm}
           hasDashboard={hasDashboard}
+          websiteType={websiteType}
+          commerceStage={commerceStage}
           brandingType={brandingType}
           postsCount={postsCount}
           reelsCount={reelsCount}
@@ -485,6 +566,8 @@ function ResultCard({
   languageCount,
   hasContactForm,
   hasDashboard,
+  websiteType,
+  commerceStage,
   brandingType,
   postsCount,
   reelsCount,
@@ -499,6 +582,8 @@ function ResultCard({
   languageCount: number;
   hasContactForm: boolean;
   hasDashboard: boolean;
+  websiteType: "landing" | "corporativa" | "ecommerce";
+  commerceStage: string | null;
   brandingType: string | null;
   postsCount: number;
   reelsCount: number;
@@ -599,6 +684,7 @@ function ResultCard({
     languageCount,
     contactForm: hasContactForm,
     dashboard: hasDashboard,
+    websiteType,
     brandingType: brandingType ?? undefined,
     posts: postsCount,
     reels: reelsCount,
@@ -627,6 +713,10 @@ function ResultCard({
         <SummaryRow label="Tipo de proyecto" value={typeData.name} />
         {projectType === "marketing" ? (
           <SummaryRow label="Campaña" value={marketingType ? { meta: "Meta Ads", tiktok: "TikTok Ads", google: "Google Ads", mercado: "Mercado Ads" }[marketingType] ?? "No definida" : "No definida"} />
+        ) : projectType === "webs" ? (
+          <SummaryRow label="Paquete" value={websiteType === "landing" ? "Landing Page" : websiteType === "corporativa" ? "Web Corporativa" : "Ecommerce"} />
+        ) : projectType === "ecommerce" ? (
+          <SummaryRow label="Etapa" value={commerceStage ? { lanzamiento: "Lanzamiento de cuenta", escalar: "Escalar mi negocio", asesoria: "Asesoría Contable/Financiera", sociedad: "Aperturar mi propia Sociedad" }[commerceStage] ?? "No definida" : "No definida"} />
         ) : (
           <SummaryRow label={quantityLabel} value={String(quantity)} />
         )}
