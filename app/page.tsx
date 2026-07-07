@@ -1,9 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, PlayCircle } from "lucide-react";
-import LogosStrip from "@/components/home/LogosStrip";
 import ProblemsGrid from "@/components/home/ProblemsGrid";
-import ProcessSteps from "@/components/home/ProcessSteps";
-import MercadoLibreSection from "@/components/home/MercadoLibreSection";
 import CasesGrid from "@/components/home/CasesGrid";
 import CTAFinal from "@/components/CTAFinal";
 
@@ -51,10 +48,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <LogosStrip />
       <ProblemsGrid />
-      <ProcessSteps />
-      <MercadoLibreSection />
       <CasesGrid />
 
       <CTAFinal
