@@ -5,15 +5,16 @@ import CTAFinal from "@/components/CTAFinal";
 import { PROBLEM_SOLUTIONS } from "@/lib/solutions-data";
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
   return PROBLEM_SOLUTIONS.map((item) => ({ slug: item.id }));
 }
 
-export default function SolutionLandingPage({ params }: PageProps) {
-  const problem = PROBLEM_SOLUTIONS.find((item) => item.id === params.slug);
+export default async function SolutionLandingPage({ params }: PageProps) {
+  const { slug } = await params;
+  const problem = PROBLEM_SOLUTIONS.find((item) => item.id === slug);
 
   if (!problem) {
     notFound();
