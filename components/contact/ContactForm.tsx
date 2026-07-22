@@ -14,10 +14,8 @@ const BUDGET_OPTIONS = [
 const SERVICE_OPTIONS = [
   "Marketing Digital",
   "Branding",
-  "Desarrollo Web",
-  "Sistema a Medida (CRM / ERP)",
-  "Automatizaciones",
-  "App Móvil",
+  "Desarrollo Web y App Móvil",
+  "Sistema a Medida y Automatización",
   "Mercado Libre",
   "No estoy seguro / Quiero asesoramiento",
 ];
@@ -110,7 +108,7 @@ export default function ContactForm() {
           <Field label="Email" error={errors.email}>
             <input
               type="email"
-              placeholder="tu@empresa.com; @gmail.com; @outlook.es; etc"
+              placeholder="Coloca un e-mail válido"
               className="dc-input"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -120,7 +118,7 @@ export default function ContactForm() {
           <Field label="Teléfono / WhatsApp" error={errors.phone}>
             <input
               type="tel"
-              placeholder="Numero telefónio de la empresa o personal"
+              placeholder="Número telefónico de la empresa o personal"
               className="dc-input"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
@@ -165,7 +163,7 @@ export default function ContactForm() {
           </div>
         </Field>
 
-        <Field label="Contanos más">
+        <Field label="Contanos más" required={false}>
           <textarea
             placeholder="Describí brevemente tu proyecto o el problema que querés resolver..."
             className="dc-textarea"
@@ -199,16 +197,18 @@ function Field({
   label,
   children,
   error,
+  required = true,
 }: {
   label: string;
   children: React.ReactNode;
   error?: string;
+  required?: boolean;
 }) {
   return (
     <div>
       <label className="block text-[13px] text-dc-muted mb-2 font-medium">
         {label}
-        <span className="text-red-500">*</span>
+        {required && <span className="text-red-500">*</span>}
       </label>
       {children}
       {error && <p className="text-xs text-red-500 mt-1">{error}</p>}

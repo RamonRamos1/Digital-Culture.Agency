@@ -77,7 +77,7 @@ export default function ContactoPage() {
                   Calendly
                 </h4>
                 <p className="text-[13px] text-dc-muted">
-                  Reservá una llamada de descubrimiento
+                  Reservá una reunión y hablamos sobre tu proyecto
                 </p>
               </div>
               <ArrowRight size={16} className="ml-auto text-dc-muted group-hover:text-dc-text transition-colors" />
@@ -105,34 +105,10 @@ export default function ContactoPage() {
             </a>
           </div>
 
-          <div className="flex gap-8 pt-8 border-t border-dc-border">
-            <Stat num="24h" label="Tiempo de respuesta" />
-            <Stat num="+120" label="Proyectos entregados" />
-            <Stat num="0%" label="Compromiso inicial" />
-          </div>
         </div>
 
         {/* RIGHT: FORM */}
         <ContactForm />
-      </div>
-
-      {/* LOCATION ROW */}
-      <div className="relative z-10 flex flex-wrap justify-between gap-6 max-w-[1280px] mx-auto mt-16 pt-10 border-t border-dc-border">
-        <LocationItem
-          icon={MapPin}
-          title="Ubicación"
-          desc="Trabajo 100% remoto, alcance en toda Latinoamérica"
-        />
-        <LocationItem
-          icon={Clock}
-          title="Horario de atención"
-          desc="Lunes a viernes, 9 a 18hs"
-        />
-        <LocationItem
-          icon={ShieldCheck}
-          title="Respuesta garantizada"
-          desc="Te contactamos en menos de 24hs"
-        />
       </div>
     </section>
   );

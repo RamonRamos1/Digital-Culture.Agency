@@ -80,7 +80,7 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
     ),
   },
   {
-    id: "automatizar",
+    id: "Sistema a Medida y Automatizaciones",
     numLabel: "PROBLEMA 03",
     question: "Quiero automatizar procesos",
     problemDesc:
@@ -88,8 +88,8 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
     solutions: [
       {
         icon: Network,
-        title: "Automatización de WhatsApp",
-        desc: "Bots de atención, confirmaciones de turnos y ventas que responden solos, sin que tu equipo intervenga.",
+        title: "Automatizacion de procesos",
+        desc: "Creamos flujos automáticos que conectan tus herramientas y eliminan tareas repetitivas, para que tu equipo se enfoque en lo que realmente importa.",
         tags: ["Bots", "Confirmaciones automáticas"],
       },
       {
@@ -106,35 +106,8 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
     ),
   },
   {
-    id: "sistema-interno",
-    numLabel: "PROBLEMA 04",
-    question: "Necesito un sistema interno",
-    problemDesc:
-      "Excel, planillas sueltas y WhatsApp ya no alcanzan para gestionar tu operación. Necesitás un sistema que escale con vos.",
-    solutions: [
-      {
-        icon: Users,
-        title: "CRM a medida",
-        desc: "Gestión de clientes, pipeline de ventas y seguimiento automático, diseñado para tu flujo específico.",
-        tags: ["Pipeline de ventas", "Reportes"],
-      },
-      {
-        icon: Network,
-        title: "ERP / Dashboards",
-        desc: "Gestión integral de inventario, facturación y visualización de datos en tiempo real para decidir mejor.",
-        tags: ["Inventario", "Facturación", "Dashboards"],
-      },
-    ],
-    resultText: (
-      <>
-        Este tipo de proyecto requiere una <strong className="text-dc-cyan">reunión de descubrimiento</strong> antes de definir alcance y presupuesto.
-      </>
-    ),
-    isDiscovery: true,
-  },
-  {
     id: "mercadolibre",
-    numLabel: "PROBLEMA 05",
+    numLabel: "PROBLEMA 04",
     question: "Quiero vender más en Mercado Libre",
     problemDesc:
       "Competís por precio y tu margen se reduce cada mes. Necesitás posicionamiento estratégico, no solo bajar precios.",

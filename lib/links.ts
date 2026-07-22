@@ -19,5 +19,5 @@ export function getCalendlyLink(): string {
 }
 
 export function getContactEmail(): string {
-  return process.env.NEXT_PUBLIC_CONTACT_EMAIL || "hola@digitalculture.com";
+  return process.env.NEXT_PUBLIC_CONTACT_EMAIL || "info@digitalculture.com";
 }

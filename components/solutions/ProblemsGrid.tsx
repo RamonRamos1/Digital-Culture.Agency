@@ -76,7 +76,7 @@ export default function ProblemsGrid() {
                   href={`/soluciones/${p.id}`}
                   className="text-sm text-dc-muted hover:text-dc-text"
                 >
-                  Ver landing
+                  Ver Más
                 </a>
               </div>
             </div>

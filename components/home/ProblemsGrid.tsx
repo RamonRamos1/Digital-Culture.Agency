@@ -15,34 +15,28 @@ const PROBLEMS = [
     tag: "Marketing Digital",
   },
   {
-    icon: Monitor,
-    title: "Tu presencia digital es invisible",
-    desc: "Sin una web que transmita autoridad y convierta, tus competidores se llevan los clientes que deberían ser tuyos.",
-    tag: "Desarrollo Web",
-  },
-  {
-    icon: Network,
-    title: "Tus procesos son manuales",
-    desc: "Tiempo valioso en tareas repetitivas. Las automatizaciones y sistemas a medida pueden liberar a tu equipo.",
-    tag: "Automatizaciones",
-  },
-  {
-    icon: ShoppingCart,
-    title: "Vendés en Mercado Libre sin estrategia",
-    desc: "Competir por precio no es sostenible. Existen herramientas para posicionarte y escalar tus ventas.",
-    tag: "Mercado Libre",
-  },
-  {
     icon: Sparkles,
     title: "Tu marca no transmite profesionalismo",
     desc: "Un logo genérico no genera confianza. La identidad visual es la primera percepción que tienen de vos.",
     tag: "Branding",
   },
   {
-    icon: GitBranch,
-    title: "No tenés un sistema interno integrado",
-    desc: "Excel y WhatsApp no escalan. Un CRM, ERP o dashboard personalizado cambia la operación completa.",
-    tag: "Sistemas a Medida",
+    icon: Monitor,
+    title: "Tu presencia digital es invisible",
+    desc: "Sin una web que transmita autoridad y convierta, tus competidores se llevan los clientes que deberían ser tuyos.",
+    tag: "Desarrollo Web y App Móvil",
+  },
+  {
+    icon: Network,
+    title: "Tus procesos son manuales",
+    desc: "Tiempo valioso en tareas repetitivas. Las automatizaciones y sistemas a medida pueden liberar a tu equipo.",
+    tag: "Automatizaciones y Sistemas a Medida",
+  },
+  {
+    icon: ShoppingCart,
+    title: "Vendés en Mercado Libre sin estrategia",
+    desc: "Competir por precio no es sostenible. Existen herramientas para posicionarte y escalar tus ventas.",
+    tag: "Mercado Libre",
   },
 ];
 
