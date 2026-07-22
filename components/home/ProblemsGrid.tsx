@@ -11,7 +11,7 @@ const PROBLEMS = [
   {
     icon: Users,
     title: "No conseguís clientes nuevos",
-    desc: "Tu negocio depende del boca a boca o leads de baja calidad. Sin estrategia digital, dejás dinero sobre la mesa.",
+    desc: "Tu negocio depende del boca a boca o leads de baja calidad. Sin prresencia ni estrategia digital, estás dejando dinero sobre la mesa.",
     tag: "Marketing Digital",
   },
   {
@@ -19,12 +19,6 @@ const PROBLEMS = [
     title: "Tu marca no transmite profesionalismo",
     desc: "Un logo genérico no genera confianza. La identidad visual es la primera percepción que tienen de vos.",
     tag: "Branding",
-  },
-  {
-    icon: Monitor,
-    title: "Tu presencia digital es invisible",
-    desc: "Sin una web que transmita autoridad y convierta, tus competidores se llevan los clientes que deberían ser tuyos.",
-    tag: "Desarrollo Web y App Móvil",
   },
   {
     icon: Network,

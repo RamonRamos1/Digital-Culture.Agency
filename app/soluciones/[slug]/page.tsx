@@ -9,12 +9,14 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return PROBLEM_SOLUTIONS.map((item) => ({ slug: item.id }));
+  return PROBLEM_SOLUTIONS.map((item) => ({ slug: item.slug ?? item.id }));
 }
 
 export default async function SolutionLandingPage({ params }: PageProps) {
   const { slug } = await params;
-  const problem = PROBLEM_SOLUTIONS.find((item) => item.id === slug);
+  const problem = PROBLEM_SOLUTIONS.find(
+    (item) => item.slug === slug || item.id === slug
+  );
 
   if (!problem) {
     notFound();

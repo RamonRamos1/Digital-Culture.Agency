@@ -17,6 +17,7 @@ export interface SolutionCard {
 
 export interface ProblemSolution {
   id: string;
+  slug?: string;
   numLabel: string;
   question: string;
   problemDesc: string;
@@ -81,6 +82,7 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
   },
   {
     id: "Sistema a Medida y Automatizaciones",
+    slug: "sistema-a-medida-y-automatizaciones",
     numLabel: "PROBLEMA 03",
     question: "Quiero automatizar procesos",
     problemDesc:
@@ -97,6 +99,18 @@ export const PROBLEM_SOLUTIONS: ProblemSolution[] = [
         title: "Integraciones entre sistemas",
         desc: "Conectamos las herramientas que ya usás para que la información fluya sola, sin copiar y pegar.",
         tags: ["APIs", "Flujos automáticos", "IA aplicada"],
+      },
+      {
+        icon: Network,
+        title: "Apps Móviles y Escritorio",
+        desc: "Creamos aplicaciones a medida para que tu equipo pueda trabajar desde cualquier lugar, con la información que necesita al alcance de la mano.",
+        tags: ["Apps", "Mobile", "Play Store", "App Store"],
+      },
+      {
+        icon: Network,
+        title: "Extensión de Google",
+        desc: "Creamos extensiones de Chrome a medida para que tu equipo pueda acceder a funcionalidades específicas desde el navegador, optimizando su flujo de trabajo.",
+        tags: ["Apps", "Mobile", "Play Store", "App Store"],
       },
     ],
     resultText: (

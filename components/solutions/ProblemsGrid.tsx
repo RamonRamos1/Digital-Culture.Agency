@@ -21,7 +21,6 @@ export default function ProblemsGrid() {
               key={p.id}
               className={clsx(
                   "bg-dc-surface border border-dc-border rounded-xl p-6 flex flex-col justify-between h-full",
-                  p.id === 'mercadolibre' && 'sm:col-span-2 md:col-span-2 lg:col-span-2',
                   orange ? "hover:border-dc-orange/35" : "hover:border-dc-blue/35"
                 )}
             >
@@ -73,7 +72,7 @@ export default function ProblemsGrid() {
                 </a>
 
                 <a
-                  href={`/soluciones/${p.id}`}
+                  href={`/soluciones/${encodeURIComponent(p.slug ?? p.id)}`}
                   className="text-sm text-dc-muted hover:text-dc-text"
                 >
                   Ver Más
