@@ -128,3 +128,68 @@ body {
 
   filter: blur(90px);
 }
+
+.perspective {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+@keyframes processLine {
+
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+
+}
+
+
+@keyframes processCard {
+
+  0% {
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  100% {
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+
+.animate-process-line {
+
+  width:100%;
+  animation:processLine 3s infinite linear;
+
+}
+
+
+
+.animate-process-card {
+
+  animation:processCard .8s ease forwards;
+
+}
+
+.backface-hidden {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
