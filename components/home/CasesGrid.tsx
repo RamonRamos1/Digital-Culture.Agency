@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const DESCRIPTION_WORD_LIMIT = 30;
+const DESCRIPTION_WORD_LIMIT = 5;
 
 const CASES = [
   {
@@ -27,11 +27,16 @@ const CASES = [
 
 function getPreviewText(text: string, limit: number) {
   const words = text.split(/\s+/).filter(Boolean);
-  return words.length <= limit ? text : `${words.slice(0, limit).join(" ")}...`;
+
+  return words.length <= limit
+    ? text
+    : `${words.slice(0, limit).join(" ")}...`;
 }
 
 export default function CasesGrid() {
-  const [expandedCases, setExpandedCases] = useState<Record<number, boolean>>({});
+  const [expandedCases, setExpandedCases] = useState<Record<number, boolean>>(
+    {}
+  );
 
   const toggleExpanded = (index: number) => {
     setExpandedCases((prev) => ({
@@ -41,62 +46,80 @@ export default function CasesGrid() {
   };
 
   return (
-    <section className="bg-dc-dark px-6 md:px-12 py-24 md:py-28">
-      <div className="section-eyebrow">Casos de Éxito</div>
-      <h2 className="section-title">
-        Resultados reales,
-        <br />
-        no promesas
-      </h2>
+    <section className="bg-dc-dark px-6 md:px-12 py-12 md:py-16">
+      <div className="max-w-7xl mx-auto">
+        <div className="section-eyebrow">
+          Casos de Éxito
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-14">
-        {CASES.map((c, index) => {
-          const isExpanded = expandedCases[index] ?? false;
-          const words = c.desc.split(/\s+/).filter(Boolean);
-          const shouldTruncate = words.length > DESCRIPTION_WORD_LIMIT;
-          const displayedText = isExpanded
-            ? c.desc
-            : getPreviewText(c.desc, DESCRIPTION_WORD_LIMIT);
+        <h2 className="section-title mt-3">
+          Resultados reales,
+          <br />
+          no promesas
+        </h2>
 
-          return (
-            <div
-              key={c.title}
-              className="flex h-full flex-col overflow-hidden rounded-xl border border-dc-border bg-dc-surface transition-all hover:-translate-y-1 hover:border-dc-blue/30"
-            >
-              <div className="h-40 bg-gradient-to-br from-dc-card to-dc-blue/5 flex items-center justify-center border-b border-dc-border font-display text-4xl font-bold tracking-tighter text-white/[0.07]">
-                {c.badge}
-              </div>
-              <div className="flex flex-1 flex-col p-7">
-                <div className="text-[11px] text-dc-cyan tracking-wide uppercase font-semibold mb-2.5">
-                  {c.type}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+          {CASES.map((c, index) => {
+            const isExpanded = expandedCases[index] ?? false;
+
+            const words = c.desc.split(/\s+/).filter(Boolean);
+
+            const shouldTruncate =
+              words.length > DESCRIPTION_WORD_LIMIT;
+
+            const displayedText = isExpanded
+              ? c.desc
+              : getPreviewText(c.desc, DESCRIPTION_WORD_LIMIT);
+
+            return (
+              <div
+                key={c.title}
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-dc-border bg-dc-surface transition-all duration-300 hover:-translate-y-1 hover:border-dc-blue/30 hover:shadow-xl hover:shadow-dc-blue/10"
+              >
+                <div className="h-36 bg-gradient-to-br from-dc-card to-dc-blue/5 flex items-center justify-center border-b border-dc-border font-display text-4xl font-bold tracking-tighter text-white/[0.07]">
+                  {c.badge}
                 </div>
-                <h3 className="font-display text-lg font-bold mb-2.5 tracking-tight">
-                  {c.title}
-                </h3>
-                <div className="flex items-start justify-between gap-3">
-                  <p className="text-sm text-dc-muted leading-relaxed flex-1">{displayedText}</p>
-                  {shouldTruncate && (
+
+                <div className="flex flex-1 flex-col p-6">
+                  <div className="text-[11px] text-dc-cyan tracking-wide uppercase font-semibold mb-2">
+                    {c.type}
+                  </div>
+
+                  <h3 className="font-display text-xl font-bold tracking-tight mb-3 min-h-[60px]">
+                    {c.title}
+                  </h3>
+
+                  <div className="flex-1">
+                    <div className="flex items-start gap-3">
+                      <p className="text-sm text-dc-muted leading-7 flex-1">
+                        {displayedText}
+                      </p>
+
+                      {shouldTruncate && (
+                        <button
+                          type="button"
+                          onClick={() => toggleExpanded(index)}
+                          className="shrink-0 text-sm font-semibold text-dc-cyan transition hover:text-white"
+                        >
+                          {isExpanded ? "ver menos" : "ver más"}
+                        </button>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
                     <button
                       type="button"
-                      onClick={() => toggleExpanded(index)}
-                      className="shrink-0 text-sm font-semibold text-dc-cyan hover:text-white transition"
+                      className="inline-flex items-center justify-center rounded-full bg-dc-cyan px-4 py-2 text-sm font-semibold text-dc-dark transition hover:bg-white/90"
                     >
-                      {isExpanded ? "ver menos" : "ver más"}
+                      Ver proyecto
                     </button>
-                  )}
-                </div>
-                <div className="mt-auto pt-5">
-                  <button
-                    type="button"
-                    className="inline-flex items-center justify-center rounded-full bg-dc-cyan px-4 py-2 text-sm font-semibold text-dc-dark transition hover:bg-white/90"
-                  >
-                    ver proyecto
-                  </button>
+                  </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );

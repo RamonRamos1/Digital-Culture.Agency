@@ -21,7 +21,7 @@ export default function PageHero({
   const isCenter = align === "center";
   return (
     <section
-      className={`relative overflow-hidden px-6 md:px-12 pt-36 md:pt-40 pb-16 md:pb-20 ${
+      className={`relative overflow-hidden px-6 md:px-12 pt-32 md:pt-36 pb-12 md:pb-16 ${
         isCenter ? "text-center" : ""
       }`}
     >

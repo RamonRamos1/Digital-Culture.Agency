@@ -177,7 +177,7 @@ export default function ContactForm() {
           className="btn-primary w-full justify-center mt-1"
           disabled={!name || !company || !email || !phone || !service || !budget}
         >
-          Enviar mensaje
+          Vamos a romperla
           <ArrowRight size={15} />
         </button>
         {submitAttempted && Object.keys(errors).length > 0 && (

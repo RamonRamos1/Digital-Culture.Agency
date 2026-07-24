@@ -27,10 +27,10 @@ export default function ContactoPage() {
             <br />
             en un{" "}
             <span className="bg-gradient-to-br from-dc-blue to-dc-cyan bg-clip-text text-transparent">
-              ecosistema
+              Proyecto
             </span>
             <br />
-            digital
+            Serio
           </h1>
           <p className="text-lg text-dc-muted leading-relaxed max-w-md mb-12">
             Contanos qué necesitás y te respondemos en menos de 24 horas con

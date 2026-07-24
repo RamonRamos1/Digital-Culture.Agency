@@ -47,7 +47,7 @@ export default function Navbar() {
         href="/contacto"
         className="hidden md:inline-flex bg-dc-blue text-white px-5 py-2.5 rounded-md text-[13px] font-display font-semibold transition-colors hover:bg-dc-blueHover"
       >
-        Solicitar Presupuesto
+        Vamos a romperla
       </Link>
 
       {/* Mobile toggle */}

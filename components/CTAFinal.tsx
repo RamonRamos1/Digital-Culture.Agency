@@ -16,7 +16,7 @@ interface CTAFinalProps {
 export default function CTAFinal({
   title,
   description,
-  primaryLabel = "Solicitar Presupuesto",
+  primaryLabel = "Empezá y dejate de joder",
   primaryHref = "/contacto",
   secondaryLabel,
   secondaryHref,
