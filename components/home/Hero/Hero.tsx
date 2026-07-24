@@ -1,55 +1,154 @@
-"use client";
+import Link from "next/link"
+import HeroVideo from "./HeroVideo"
 
-import Link from "next/link";
-import { ArrowRight, PlayCircle } from "lucide-react";
 
-import HeroStats from "./HeroStats";
+export default function Hero(){
 
-export default function Hero() {
-  return (
-    <section className="relative overflow-hidden px-6 md:px-12 pt-28 md:pt-32 pb-14 md:pb-16">
-      <div className="mx-auto max-w-5xl">
+return (
 
-        <div className="eyebrow mb-7">
-          <span className="eyebrow-dot animate-pulse" />
-          Ecosistema de Transformación Digital
-        </div>
+<section
+className="
+relative
+overflow-hidden
+px-6
+pt-24
+pb-16
+md:px-12
+md:pt-32
+"
+>
 
-        <h1 className="font-display font-bold tracking-tighter leading-[1.02] text-[clamp(44px,6vw,82px)]">
-          Planteamos
-          <br />
 
-          <span className="bg-gradient-to-r from-dc-blue via-dc-cyan to-white bg-clip-text text-transparent">
-            Soluciones
-          </span>
+<div
+className="
+mx-auto
+grid
+max-w-7xl
+items-center
+gap-8
+lg:gap-12
+md:grid-cols-[1.1fr_0.9fr]
+"
+>
 
-          <br />
 
-          a problemas reales
-        </h1>
+{/* CONTENIDO */}
 
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-dc-muted">
-          Creemos que para poder ayudarte realmente, primero necesitamos
-          conocer tu negocio, entender sus fortalezas y detectar sus
-          oportunidades de mejora. Recién entonces proponemos una solución
-          tecnológica pensada específicamente para vos.
-        </p>
+<div>
 
-        <div className="mt-10 flex flex-wrap gap-4">
-          <Link href="/contacto" className="btn-primary">
-            Queremos conocerte
-            <ArrowRight size={18} />
-          </Link>
 
-          <Link href="/casos-de-exito" className="btn-secondary">
-            <PlayCircle size={18} />
-            Ver Casos de Éxito
-          </Link>
-        </div>
 
-        <HeroStats />
+<h1
+className="
+font-display
+text-4xl
+font-bold
+leading-tight
+text-dc-text
+sm:text-5xl
+text-4xl
+sm:text-5xl
+md:text-[3.2rem]
+lg:text-6xl"
+>
 
-      </div>
-    </section>
-  );
+Convertimos problemas
+de negocio en
+soluciones digitales.
+
+</h1>
+
+
+
+<p
+className="
+mt-6
+max-w-xl
+text-lg
+leading-relaxed
+text-dc-muted
+"
+>
+
+Ayudamos a empresas a eliminar procesos
+ineficientes, automatizar operaciones e
+integrar tecnología para crecer de manera
+más rápida y eficiente.
+
+</p>
+
+
+
+<div
+className="
+mt-8
+flex
+flex-col
+gap-4
+sm:flex-row
+"
+>
+
+
+<Link
+href="/contacto"
+className="
+btn-primary
+text-center
+"
+>
+
+Quiero conocer Digital Culture
+
+</Link>
+
+
+</div>
+
+
+</div>
+
+
+
+{/* VIDEO */}
+
+<div
+className="
+w-full
+max-w-sm
+mx-auto
+md:max-w-md
+lg:max-w-xl
+lg:mx-0
+lg:justify-self-end
+"
+>
+
+<HeroVideo />
+
+
+<p
+className="
+mt-4
+text-center
+text-sm
+text-dc-muted
+"
+>
+
+Conocé cómo ayudamos a transformar empresas
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+)
+
 }

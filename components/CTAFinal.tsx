@@ -5,7 +5,7 @@ import { getWhatsAppLink } from "@/lib/links";
 
 interface CTAFinalProps {
   title: React.ReactNode;
-  description: string;
+  description?: string;
   primaryLabel?: string;
   primaryHref?: string;
   secondaryLabel?: string;
@@ -23,15 +23,17 @@ export default function CTAFinal({
   showWhatsapp = false,
 }: CTAFinalProps) {
   return (
-    <section className="relative overflow-hidden text-center bg-dc-black border-t border-dc-border px-6 md:px-12 py-24 md:py-32">
+    <section className="relative overflow-hidden border-t border-dc-border bg-dc-black px-6 py-14 text-center md:px-12 md:py-20">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_800px_400px_at_50%_50%,rgba(0,85,255,0.08)_0%,transparent_70%)]" />
-      <h2 className="relative font-display font-bold tracking-tighter text-[clamp(32px,4.5vw,56px)] max-w-2xl mx-auto mb-5 leading-tight">
+      <h2 className="relative mx-auto mb-4 max-w-xl font-display font-bold leading-tight tracking-[-0.03em] text-[clamp(28px,4vw,44px)]">
         {title}
       </h2>
-      <p className="relative text-dc-muted text-lg max-w-lg mx-auto mb-10">
-        {description}
-      </p>
-      <div className="relative flex gap-4 justify-center flex-wrap">
+      {description && (
+  <p className="relative mx-auto mb-8 max-w-lg text-base leading-relaxed text-dc-muted">
+    {description}
+  </p>
+)}
+      <div className="relative flex flex-wrap justify-center gap-3">
         <Link href={primaryHref} className="btn-primary">
           {primaryLabel}
           <ArrowRight size={16} />
