@@ -1,0 +1,1 @@
+export { SOLUTIONS } from "./data";
