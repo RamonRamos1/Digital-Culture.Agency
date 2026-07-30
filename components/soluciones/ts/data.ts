@@ -8,128 +8,210 @@ import {
 
 export const SOLUTIONS = [
 
-  {
-    id: "software",
+{
+  id: "software",
 
-    number: "01",
+  number: "01",
 
-    icon: Clock3,
-
-    eyebrow: "AUTOMATIZACIÓN Y SOFTWARE",
-
-    title: "Perdés demasiado tiempo",
-
-    description:
-      "Automatizamos procesos y desarrollamos sistemas digitales para que tu negocio sea más eficiente.",
-
-    href:
-      "/soluciones/software",
-
-    solutions: [
-      "CRM personalizados",
-      "Gestión de stock",
-      "Automatización administrativa",
-      "Facturación y procesos internos",
-      "Sistemas de control de rentabilidad"
-    ],
-
-    result:
-      "Menos tareas manuales, más tiempo y mayor control."
-  },
+  icon: Clock3,
 
 
-  {
-    id: "ecommerce",
-
-    number: "02",
-
-    icon: BarChart3,
-
-    eyebrow: "DATOS Y ECOMMERCE",
-
-    title:
-      "Tomás decisiones sin información clara",
-
-    description:
-      "Transformamos datos dispersos en información útil para mejorar ventas y rentabilidad.",
-
-    href:
-      "/soluciones/ecommerce",
-
-    solutions:[
-      "Dashboards personalizados",
-      "Google Analytics",
-      "Google Tag Manager",
-      "Análisis de competencia",
-      "Mercado Libre y Nubimetrics"
-    ],
-
-    result:
-      "Decisiones basadas en datos reales."
-  },
+  eyebrow: "AUTOMATIZACIÓN Y SOFTWARE",
 
 
-  {
-    id:"branding",
-
-    number:"03",
-
-    icon:Palette,
-
-    eyebrow:
-      "BRANDING Y COMUNICACIÓN",
-
-    title:
-      "Tu negocio no refleja su verdadero valor",
-
-    description:
-      "Construimos una identidad visual que transmite confianza y diferencia tu marca.",
-
-    href:
-      "/soluciones/branding",
-
-    solutions:[
-      "Identidad visual",
-      "Diseño de marca",
-      "Catálogos digitales",
-      "Packaging",
-      "Material comercial"
-    ],
-
-    result:
-      "Una marca preparada para crecer."
-  },
+  title:
+    "Tu equipo pierde horas en tareas repetitivas",
 
 
-  {
-    id:"marketing",
+  description:
+    "Diseñamos sistemas digitales que eliminan procesos manuales, reducen errores y permiten que tu negocio opere de forma más eficiente.",
 
-    number:"04",
 
-    icon:Megaphone,
+  href:
+    "/soluciones/software",
 
-    eyebrow:
-      "MARKETING Y CRECIMIENTO",
 
-    title:
-      "Necesitás más clientes",
+  solutions: [
 
-    description:
-      "Diseñamos estrategias digitales enfocadas en aumentar ventas y mejorar tu margen.",
+    "CRM personalizados",
 
-    href:
-      "/soluciones/marketing",
+    "Sistemas de gestión internos",
 
-    solutions:[
-      "Google Ads",
-      "Meta Ads",
-      "Mercado Ads",
-      "Estrategia comercial",
-      "Optimización de conversión"
-    ],
+    "Automatización administrativa",
 
-    result:
-      "Más clientes, mejor facturación y mayor rentabilidad."
-  }
+    "Control de stock y operaciones",
+
+    "Facturación y rentabilidad"
+
+  ],
+
+
+  result:
+    "Más productividad, menos tareas manuales y mayor control operativo."
+
+},
+
+
+
+
+{
+  id: "ecommerce",
+
+
+  number: "02",
+
+
+  icon: BarChart3,
+
+
+  eyebrow:
+    "DATOS Y ECOMMERCE",
+
+
+  title:
+    "Tomás decisiones sin saber qué funciona",
+
+
+  description:
+    "Convertimos datos de ventas, clientes y mercado en información clara para detectar oportunidades y mejorar resultados.",
+
+
+  href:
+    "/soluciones/ecommerce",
+
+
+
+  solutions:[
+
+    "Dashboards personalizados",
+
+    "Google Analytics",
+
+    "Google Tag Manager",
+
+    "Análisis de competencia",
+
+    "Mercado Libre y Nubimetrics"
+
+  ],
+
+
+
+  result:
+    "Decisiones estratégicas basadas en información real."
+
+},
+
+
+
+
+
+{
+  id:"branding",
+
+
+  number:"03",
+
+
+  icon:Palette,
+
+
+  eyebrow:
+    "BRANDING Y COMUNICACIÓN",
+
+
+
+  title:
+    "Tu marca no comunica todo su potencial",
+
+
+
+  description:
+    "Creamos una identidad visual estratégica que transmite confianza, diferencia tu negocio y mejora la percepción de valor.",
+
+
+
+  href:
+    "/soluciones/branding",
+
+
+
+  solutions:[
+
+    "Estrategia de marca",
+
+    "Identidad visual",
+
+    "Diseño de piezas comerciales",
+
+    "Catálogos digitales",
+
+    "Packaging"
+
+  ],
+
+
+
+  result:
+    "Una marca profesional preparada para competir y crecer."
+
+},
+
+
+
+
+
+
+{
+  id:"marketing",
+
+
+  number:"04",
+
+
+  icon:Megaphone,
+
+
+  eyebrow:
+    "MARKETING Y CRECIMIENTO",
+
+
+
+  title:
+    "Invertís en publicidad pero no crecen tus ventas",
+
+
+
+  description:
+    "Creamos estrategias digitales enfocadas en atraer clientes, mejorar conversiones y aumentar la rentabilidad.",
+
+
+
+  href:
+    "/soluciones/marketing",
+
+
+
+  solutions:[
+
+    "Google Ads",
+
+    "Meta Ads",
+
+    "Mercado Ads",
+
+    "Estrategia comercial",
+
+    "Optimización de conversiones"
+
+  ],
+
+
+
+  result:
+    "Más oportunidades comerciales y crecimiento sostenible."
+
+}
+
 
 ];
